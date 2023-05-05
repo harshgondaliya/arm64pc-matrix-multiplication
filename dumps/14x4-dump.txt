@@ -1,0 +1,96 @@
+ 3e0:   d37df0c6        lsl     x6, x6, #3
+ 3e4:   93407c42        sxtw    x2, w2
+ 3e8:   a9bc7bfd        stp     x29, x30, [sp, #-64]!
+ 3ec:   8b0600ae        add     x14, x5, x6
+ 3f0:   25e21fe2        whilelo p2.d, xzr, x2
+ 3f4:   910003fd        mov     x29, sp
+ 3f8:   8b0601cf        add     x15, x14, x6
+ 3fc:   a5e0a9f4        ld1d    {z20.d}, p2/z, [x15]
+ 400:   8b0601f0        add     x16, x15, x6
+ 404:   a5e0a8b6        ld1d    {z22.d}, p2/z, [x5]
+ 408:   a5e0aa13        ld1d    {z19.d}, p2/z, [x16]
+ 40c:   8b06020d        add     x13, x16, x6
+ 410:   a5e0a9d5        ld1d    {z21.d}, p2/z, [x14]
+ 414:   a5e0a9b2        ld1d    {z18.d}, p2/z, [x13]
+ 418:   8b0601b1        add     x17, x13, x6
+ 41c:   a5e0aa31        ld1d    {z17.d}, p2/z, [x17]
+ 420:   8b06022c        add     x12, x17, x6
+ 424:   a5e0a990        ld1d    {z16.d}, p2/z, [x12]
+ 428:   8b06018b        add     x11, x12, x6
+ 42c:   a5e0a967        ld1d    {z7.d}, p2/z, [x11]
+ 430:   8b06016a        add     x10, x11, x6
+ 434:   a5e0a946        ld1d    {z6.d}, p2/z, [x10]
+ 438:   8b060149        add     x9, x10, x6
+ 43c:   a5e0a925        ld1d    {z5.d}, p2/z, [x9]
+ 440:   8b060128        add     x8, x9, x6
+ 444:   a5e0a904        ld1d    {z4.d}, p2/z, [x8]
+ 448:   8b060107        add     x7, x8, x6
+ 44c:   a5e0a8e3        ld1d    {z3.d}, p2/z, [x7]
+ 450:   8b0600e2        add     x2, x7, x6
+ 454:   a5e0a842        ld1d    {z2.d}, p2/z, [x2]
+ 458:   8b060046        add     x6, x2, x6
+ 45c:   a5e0a8c1        ld1d    {z1.d}, p2/z, [x6]
+ 460:   7100001f        cmp     w0, #0x0
+ 464:   540005ed        b.le    520 <dgemm_14x4x4+0x140>
+ 468:   51000400        sub     w0, w0, #0x1
+ 46c:   91018072        add     x18, x3, #0x60
+ 470:   25824840        mov     p0.b, p2.b
+ 474:   52800c1e        mov     w30, #0x60                      // #96
+ 478:   937d7c21        sbfiz   x1, x1, #3, #32
+ 47c:   2518e141        ptrue   p1.b, vl32
+ 480:   6d0127e8        stp     d8, d9, [sp, #16]
+ 484:   9bbe4800        umaddl  x0, w0, w30, x18
+ 488:   6d022fea        stp     d10, d11, [sp, #32]
+ 48c:   fd001bec        str     d12, [sp, #48]
+ 490:   85c1e46c        ld1rd   {z12.d}, p1/z, [x3, #8]
+ 494:   85c0e46b        ld1rd   {z11.d}, p1/z, [x3]
+ 498:   85c2e46a        ld1rd   {z10.d}, p1/z, [x3, #16]
+ 49c:   85c3e469        ld1rd   {z9.d}, p1/z, [x3, #24]
+ 4a0:   85c4e468        ld1rd   {z8.d}, p1/z, [x3, #32]
+ 4a4:   85c5e47f        ld1rd   {z31.d}, p1/z, [x3, #40]
+ 4a8:   85c6e47e        ld1rd   {z30.d}, p1/z, [x3, #48]
+ 4ac:   85c7e47d        ld1rd   {z29.d}, p1/z, [x3, #56]
+ 4b0:   85c8e47c        ld1rd   {z28.d}, p1/z, [x3, #64]
+ 4b4:   85c9e47b        ld1rd   {z27.d}, p1/z, [x3, #72]
+ 4b8:   85cae47a        ld1rd   {z26.d}, p1/z, [x3, #80]
+ 4bc:   85cbe479        ld1rd   {z25.d}, p1/z, [x3, #88]
+ 4c0:   85cce478        ld1rd   {z24.d}, p1/z, [x3, #96]
+ 4c4:   85cde477        ld1rd   {z23.d}, p1/z, [x3, #104]
+ 4c8:   91018063        add     x3, x3, #0x60
+ 4cc:   a5e0a480        ld1d    {z0.d}, p1/z, [x4]
+ 4d0:   8b010084        add     x4, x4, x1
+ 4d4:   65ec0015        fmla    z21.d, p0/m, z0.d, z12.d
+ 4d8:   65eb0016        fmla    z22.d, p0/m, z0.d, z11.d
+ 4dc:   65ea0014        fmla    z20.d, p0/m, z0.d, z10.d
+ 4e0:   65e90013        fmla    z19.d, p0/m, z0.d, z9.d
+ 4e4:   65e80012        fmla    z18.d, p0/m, z0.d, z8.d
+ 4e8:   65ff0011        fmla    z17.d, p0/m, z0.d, z31.d
+ 4ec:   65fe0010        fmla    z16.d, p0/m, z0.d, z30.d
+ 4f0:   65fd0007        fmla    z7.d, p0/m, z0.d, z29.d
+ 4f4:   65fc0006        fmla    z6.d, p0/m, z0.d, z28.d
+ 4f8:   65fb0005        fmla    z5.d, p0/m, z0.d, z27.d
+ 4fc:   65fa0004        fmla    z4.d, p0/m, z0.d, z26.d
+ 500:   65f90003        fmla    z3.d, p0/m, z0.d, z25.d
+ 504:   65f80002        fmla    z2.d, p0/m, z0.d, z24.d
+ 508:   65f70001        fmla    z1.d, p0/m, z0.d, z23.d
+ 50c:   eb03001f        cmp     x0, x3
+ 510:   54fffc01        b.ne    490 <dgemm_14x4x4+0xb0>  // b.any
+ 514:   6d4127e8        ldp     d8, d9, [sp, #16]
+ 518:   6d422fea        ldp     d10, d11, [sp, #32]
+ 51c:   fd401bec        ldr     d12, [sp, #48]
+ 520:   e5e0e8b6        st1d    {z22.d}, p2, [x5]
+ 524:   e5e0e9d5        st1d    {z21.d}, p2, [x14]
+ 528:   e5e0e9f4        st1d    {z20.d}, p2, [x15]
+ 52c:   e5e0ea13        st1d    {z19.d}, p2, [x16]
+ 530:   e5e0e9b2        st1d    {z18.d}, p2, [x13]
+ 534:   e5e0ea31        st1d    {z17.d}, p2, [x17]
+ 538:   e5e0e990        st1d    {z16.d}, p2, [x12]
+ 53c:   e5e0e967        st1d    {z7.d}, p2, [x11]
+ 540:   e5e0e946        st1d    {z6.d}, p2, [x10]
+ 544:   e5e0e925        st1d    {z5.d}, p2, [x9]
+ 548:   e5e0e904        st1d    {z4.d}, p2, [x8]
+ 54c:   e5e0e8e3        st1d    {z3.d}, p2, [x7]
+ 550:   e5e0e842        st1d    {z2.d}, p2, [x2]
+ 554:   e5e0e8c1        st1d    {z1.d}, p2, [x6]
+ 558:   a8c47bfd        ldp     x29, x30, [sp], #64
+ 55c:   d65f03c0        ret

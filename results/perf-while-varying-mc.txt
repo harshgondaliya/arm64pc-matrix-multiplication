@@ -1,0 +1,52 @@
+perf stat -e L1-dcache-load-misses -e L1-dcache-loads -e L1-icache-load-misses -e L1-icache-loads -e dTLB-load-misses -e dTLB-loads -e iTLB-load-misses -e iTLB-loads ./genDATA.sh
+
+MC = 112
+Performance counter stats for './genDATA.sh':
+
+         354948410      L1-dcache-load-misses     #    1.59% of all L1-dcache accesses  (24.92%)
+       22311074746      L1-dcache-loads                                               (25.14%)
+          15019725      L1-icache-load-misses     #    0.20% of all L1-icache accesses  (25.29%)
+        7561687125      L1-icache-loads                                               (25.24%)
+         203378409      dTLB-load-misses          #    0.91% of all dTLB cache accesses  (25.18%)
+       22310764821      dTLB-loads                                                    (25.08%)
+             11514      iTLB-load-misses          #    0.00% of all iTLB cache accesses  (24.93%)
+         856245068      iTLB-loads                                                    (24.89%)
+
+      11.536443015 seconds time elapsed
+
+      10.756425000 seconds user
+       0.278039000 seconds sys
+
+MC = 784
+Performance counter stats for './genDATA.sh':
+
+         227903051      L1-dcache-load-misses     #    1.03% of all L1-dcache accesses  (25.03%)
+       22120281806      L1-dcache-loads                                               (25.09%)
+          11931460      L1-icache-load-misses     #    0.16% of all L1-icache accesses  (25.14%)
+        7452029663      L1-icache-loads                                               (25.18%)
+          76003775      dTLB-load-misses          #    0.34% of all dTLB cache accesses  (25.07%)
+       22042085184      dTLB-loads                                                    (25.02%)
+              8880      iTLB-load-misses          #    0.00% of all iTLB cache accesses  (25.04%)
+         877678725      iTLB-loads                                                    (24.99%)
+
+      11.214000590 seconds time elapsed
+
+      10.407513000 seconds user
+       0.333970000 seconds sys
+
+MC = 2018
+Performance counter stats for './genDATA.sh':
+
+         217942530      L1-dcache-load-misses     #    0.99% of all L1-dcache accesses  (24.75%)
+       22033447646      L1-dcache-loads                                               (25.14%)
+          25518498      L1-icache-load-misses     #    0.34% of all L1-icache accesses  (25.42%)
+        7490507069      L1-icache-loads                                               (25.26%)
+          69471333      dTLB-load-misses          #    0.31% of all dTLB cache accesses  (25.20%)
+       22177593056      dTLB-loads                                                    (25.08%)
+             16263      iTLB-load-misses          #    0.00% of all iTLB cache accesses  (25.00%)
+         806357634      iTLB-loads                                                    (24.90%)
+
+      11.622809375 seconds time elapsed
+
+      10.410587000 seconds user
+       0.331069000 seconds sys

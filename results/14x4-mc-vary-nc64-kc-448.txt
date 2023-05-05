@@ -1,0 +1,197 @@
+Mc = 112; Kc = 448; Nc = 64
+513	20.9
+1023	20.7
+1024	20.7
+1025	19.2
+2047	19.8
+2048	19.4
+
+Mc = 224; Kc = 448; Nc = 64
+513	21.3
+1023	21.2
+1024	21
+1025	20.8
+2047	20.1
+2048	20.4
+
+Mc = 336; Kc = 448; Nc = 64
+513	21.1
+1023	21.2
+1024	21.3
+1025	21.2
+2047	20.1
+2048	21.6
+
+Mc = 448; Kc = 448; Nc = 64
+513	17.4
+1023	21.3
+1024	19.6
+1025	21.2
+2047	20
+2048	20.8
+
+Mc = 560; Kc = 448; Nc = 64
+513	21.3
+1023	21.3
+1024	21.8
+1025	17.8
+2047	21.6
+2048	21.9
+
+Mc = 672; Kc = 448; Nc = 64
+513	21.3
+1023	19.6
+1024	21.7
+1025	21.5
+2047	20.3
+2048	21.3
+
+Mc = 784; Kc = 448; Nc = 64
+513	20.5
+1023	21.5
+1024	21.6
+1025	21.5
+2047	21.3
+2048	22
+
+Mc = 896; Kc = 448; Nc = 64
+513	21.3
+1023	21.5
+1024	21.6
+1025	21.5
+2047	21.5
+2048	20.8
+
+Mc = 1008; Kc = 448; Nc = 64
+513	21.1
+1023	21.4
+1024	21.4
+1025	21.4
+2047	20
+2048	21.9
+
+Mc = 1120; Kc = 448; Nc = 64
+513	19.9
+1023	21.5
+1024	21.5
+1025	21.5
+2047	21.5
+2048	22
+
+Mc = 1232; Kc = 448; Nc = 64
+513	21.4
+1023	21.4
+1024	21.6
+1025	21.6
+2047	20.5
+2048	21.6
+
+Mc = 1344; Kc = 448; Nc = 64
+513	21.3
+1023	21.6
+1024	21.6
+1025	21.6
+2047	20.8
+2048	20.8
+
+Mc = 1456; Kc = 448; Nc = 64
+513	21.4
+1023	21.6
+1024	21.6
+1025	21.5
+2047	21.9
+2048	20.8
+
+Mc = 1568; Kc = 448; Nc = 64
+513	21.2
+1023	21.5
+1024	21.5
+1025	21.4
+2047	20.7
+2048	22
+
+Mc = 1680; Kc = 448; Nc = 64
+513	21.3
+1023	21.4
+1024	21.3
+1025	21.5
+2047	20
+2048	22
+
+Mc = 1794; Kc = 448; Nc = 64
+513	21.2
+1023	21.3
+1024	21.5
+1025	21.5
+2047	19.8
+2048	20.9
+
+
+Mc = 1906; Kc = 448; Nc = 64
+513	21.3
+1023	21.1
+1024	21.5
+1025	21.4
+2047	20.9
+2048	21.7
+
+Mc = 2018; Kc = 448; Nc = 64
+513	21.2
+1023	21.3
+1024	21.4
+1025	21.5
+2047	20.5
+2048	20.8
+
+perf stat -e L1-dcache-load-misses -e L1-dcache-loads -e L1-icache-load-misses -e L1-icache-loads -e dTLB-load-misses -e dTLB-loads -e iTLB-load-misses -e iTLB-loads ./genDATA.sh
+
+MC = 112
+Performance counter stats for './genDATA.sh':
+
+         354948410      L1-dcache-load-misses     #    1.59% of all L1-dcache accesses  (24.92%)
+       22311074746      L1-dcache-loads                                               (25.14%)
+          15019725      L1-icache-load-misses     #    0.20% of all L1-icache accesses  (25.29%)
+        7561687125      L1-icache-loads                                               (25.24%)
+         203378409      dTLB-load-misses          #    0.91% of all dTLB cache accesses  (25.18%)
+       22310764821      dTLB-loads                                                    (25.08%)
+             11514      iTLB-load-misses          #    0.00% of all iTLB cache accesses  (24.93%)
+         856245068      iTLB-loads                                                    (24.89%)
+
+      11.536443015 seconds time elapsed
+
+      10.756425000 seconds user
+       0.278039000 seconds sys
+
+MC = 784
+Performance counter stats for './genDATA.sh':
+
+         227903051      L1-dcache-load-misses     #    1.03% of all L1-dcache accesses  (25.03%)
+       22120281806      L1-dcache-loads                                               (25.09%)
+          11931460      L1-icache-load-misses     #    0.16% of all L1-icache accesses  (25.14%)
+        7452029663      L1-icache-loads                                               (25.18%)
+          76003775      dTLB-load-misses          #    0.34% of all dTLB cache accesses  (25.07%)
+       22042085184      dTLB-loads                                                    (25.02%)
+              8880      iTLB-load-misses          #    0.00% of all iTLB cache accesses  (25.04%)
+         877678725      iTLB-loads                                                    (24.99%)
+
+      11.214000590 seconds time elapsed
+
+      10.407513000 seconds user
+       0.333970000 seconds sys
+
+MC = 2018
+Performance counter stats for './genDATA.sh':
+
+         217942530      L1-dcache-load-misses     #    0.99% of all L1-dcache accesses  (24.75%)
+       22033447646      L1-dcache-loads                                               (25.14%)
+          25518498      L1-icache-load-misses     #    0.34% of all L1-icache accesses  (25.42%)
+        7490507069      L1-icache-loads                                               (25.26%)
+          69471333      dTLB-load-misses          #    0.31% of all dTLB cache accesses  (25.20%)
+       22177593056      dTLB-loads                                                    (25.08%)
+             16263      iTLB-load-misses          #    0.00% of all iTLB cache accesses  (25.00%)
+         806357634      iTLB-loads                                                    (24.90%)
+
+      11.622809375 seconds time elapsed
+
+      10.410587000 seconds user
+       0.331069000 seconds sys

@@ -1,0 +1,81 @@
+0000000000000560 <dgemm_12x4x4>:
+ 560:   d37df0c6        lsl     x6, x6, #3
+ 564:   93407c42        sxtw    x2, w2
+ 568:   25e21fe2        whilelo p2.d, xzr, x2
+ 56c:   8b0600ae        add     x14, x5, x6
+ 570:   fc1f0fe8        str     d8, [sp, #-16]!
+ 574:   a5e0a8b4        ld1d    {z20.d}, p2/z, [x5]
+ 578:   8b0601cf        add     x15, x14, x6
+ 57c:   a5e0a9d3        ld1d    {z19.d}, p2/z, [x14]
+ 580:   a5e0a9f2        ld1d    {z18.d}, p2/z, [x15]
+ 584:   8b0601ed        add     x13, x15, x6
+ 588:   a5e0a9b1        ld1d    {z17.d}, p2/z, [x13]
+ 58c:   8b0601ac        add     x12, x13, x6
+ 590:   a5e0a990        ld1d    {z16.d}, p2/z, [x12]
+ 594:   8b06018b        add     x11, x12, x6
+ 598:   a5e0a967        ld1d    {z7.d}, p2/z, [x11]
+ 59c:   8b06016a        add     x10, x11, x6
+ 5a0:   a5e0a946        ld1d    {z6.d}, p2/z, [x10]
+ 5a4:   8b060149        add     x9, x10, x6
+ 5a8:   a5e0a925        ld1d    {z5.d}, p2/z, [x9]
+ 5ac:   8b060128        add     x8, x9, x6
+ 5b0:   a5e0a904        ld1d    {z4.d}, p2/z, [x8]
+ 5b4:   8b060107        add     x7, x8, x6
+ 5b8:   a5e0a8e3        ld1d    {z3.d}, p2/z, [x7]
+ 5bc:   8b0600e2        add     x2, x7, x6
+ 5c0:   a5e0a842        ld1d    {z2.d}, p2/z, [x2]
+ 5c4:   8b060046        add     x6, x2, x6
+ 5c8:   a5e0a8c1        ld1d    {z1.d}, p2/z, [x6]
+ 5cc:   7100001f        cmp     w0, #0x0
+ 5d0:   540004ad        b.le    664 <dgemm_12x4x4+0x104>
+ 5d4:   51000400        sub     w0, w0, #0x1
+ 5d8:   91018070        add     x16, x3, #0x60
+ 5dc:   25824840        mov     p0.b, p2.b
+ 5e0:   52800c11        mov     w17, #0x60                      // #96
+ 5e4:   937d7c21        sbfiz   x1, x1, #3, #32
+ 5e8:   2518e141        ptrue   p1.b, vl32
+ 5ec:   9bb14000        umaddl  x0, w0, w17, x16
+ 5f0:   85c1e468        ld1rd   {z8.d}, p1/z, [x3, #8]
+ 5f4:   85c0e47f        ld1rd   {z31.d}, p1/z, [x3]
+ 5f8:   85c2e47e        ld1rd   {z30.d}, p1/z, [x3, #16]
+ 5fc:   85c3e47d        ld1rd   {z29.d}, p1/z, [x3, #24]
+ 600:   85c4e47c        ld1rd   {z28.d}, p1/z, [x3, #32]
+ 604:   85c5e47b        ld1rd   {z27.d}, p1/z, [x3, #40]
+ 608:   85c6e47a        ld1rd   {z26.d}, p1/z, [x3, #48]
+ 60c:   85c7e479        ld1rd   {z25.d}, p1/z, [x3, #56]
+ 610:   85c8e478        ld1rd   {z24.d}, p1/z, [x3, #64]
+ 614:   85c9e477        ld1rd   {z23.d}, p1/z, [x3, #72]
+ 618:   85cae476        ld1rd   {z22.d}, p1/z, [x3, #80]
+ 61c:   85cbe475        ld1rd   {z21.d}, p1/z, [x3, #88]
+ 620:   91018063        add     x3, x3, #0x60
+ 624:   a5e0a480        ld1d    {z0.d}, p1/z, [x4]
+ 628:   8b010084        add     x4, x4, x1
+ 62c:   65e80013        fmla    z19.d, p0/m, z0.d, z8.d
+ 630:   65ff0014        fmla    z20.d, p0/m, z0.d, z31.d
+ 634:   65fe0012        fmla    z18.d, p0/m, z0.d, z30.d
+ 638:   65fd0011        fmla    z17.d, p0/m, z0.d, z29.d
+ 63c:   65fc0010        fmla    z16.d, p0/m, z0.d, z28.d
+ 640:   65fb0007        fmla    z7.d, p0/m, z0.d, z27.d
+ 644:   65fa0006        fmla    z6.d, p0/m, z0.d, z26.d
+ 648:   65f90005        fmla    z5.d, p0/m, z0.d, z25.d
+ 64c:   65f80004        fmla    z4.d, p0/m, z0.d, z24.d
+ 650:   65f70003        fmla    z3.d, p0/m, z0.d, z23.d
+ 654:   65f60002        fmla    z2.d, p0/m, z0.d, z22.d
+ 658:   65f50001        fmla    z1.d, p0/m, z0.d, z21.d
+ 65c:   eb03001f        cmp     x0, x3
+ 660:   54fffc81        b.ne    5f0 <dgemm_12x4x4+0x90>  // b.any
+ 664:   e5e0e8b4        st1d    {z20.d}, p2, [x5]
+ 668:   e5e0e9d3        st1d    {z19.d}, p2, [x14]
+ 66c:   e5e0e9f2        st1d    {z18.d}, p2, [x15]
+ 670:   e5e0e9b1        st1d    {z17.d}, p2, [x13]
+ 674:   e5e0e990        st1d    {z16.d}, p2, [x12]
+ 678:   e5e0e967        st1d    {z7.d}, p2, [x11]
+ 67c:   e5e0e946        st1d    {z6.d}, p2, [x10]
+ 680:   e5e0e925        st1d    {z5.d}, p2, [x9]
+ 684:   e5e0e904        st1d    {z4.d}, p2, [x8]
+ 688:   e5e0e8e3        st1d    {z3.d}, p2, [x7]
+ 68c:   e5e0e842        st1d    {z2.d}, p2, [x2]
+ 690:   e5e0e8c1        st1d    {z1.d}, p2, [x6]
+ 694:   fc4107e8        ldr     d8, [sp], #16
+ 698:   d65f03c0        ret
+ 69c:   d503201f        nop
