@@ -1,13 +1,4 @@
-# pa1-starter<br />
-pa1 assignment<br />
-Starter Code for the Matrix Multiplication assignment<br />
-Original code provided by Jim Demmel<br />
-http://www.cs.berkeley.edu/~knight/cs267/hw1.html<br />
-with some modifications by Scott B. Baden at UC San Diego<br />
-with some modifications by Bryan Chin at UC San Diego<br />
-
-First Commit Edit
-## Usage
+<b>Note:</b> This project was done as a part of CSE 260 Parallel Computation course taught by Bryan Chin at UC San Diego in Fall 2022.<br />
 
 ```bash
 make
